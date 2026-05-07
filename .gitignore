@@ -216,3 +216,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# SAP Raw Data Exports — never commit
+*.xlsx
+*.xls
+data/
+venv/
