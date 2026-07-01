@@ -1,6 +1,6 @@
 # MD06 Ausnahmemeldungsanalyse -- ELA
 
-**Auswertungsdatum:** 07.05.2026  
+**Auswertungsdatum:** 01.07.2026  
 **Scope:** MRP-Controller 211, 212, 415, 416  
 **Analyseebene:** Materialnummer (dedupliziert)  
 **Quelle:** SAP MD06-Export (nach MRP-Lauf)  
@@ -130,4 +130,4 @@ welche Gruppen dominieren, und wie kritisch ist die Bestandssituation?
 
 ---
 
-*Erstellt: 07.05.2026 | Anonymisiertes Industrieprojekt (ELA) | Masterarbeit WI -- MCI 2026*
+*Erstellt: 01.07.2026 | Anonymisiertes Industrieprojekt (ELA) | Masterarbeit WI -- MCI 2026*
