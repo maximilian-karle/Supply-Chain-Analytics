@@ -20,6 +20,7 @@ Dependencies:
   pip install pandas openpyxl
 """
 
+import math
 import pandas as pd
 from pathlib import Path
 from datetime import datetime
@@ -92,14 +93,18 @@ def load_file(path: Path) -> pd.DataFrame:
 
 
 def filter_plant_year(df: pd.DataFrame, plant: str = "1000", year: int = 2025) -> pd.DataFrame:
+    """
+    Filtert auf Werk. Der SAP-Export wird bereits mit Bezugsjahr 2025 erzeugt;
+    eine zusätzliche client-seitige Year-Filterung auf Starttermin Eck würde
+    Carry-over-FA (Starttermin 2024, in 2025 noch aktiv) und vorgeplante FA
+    (Starttermin 2026, in 2025 erstellt) fälschlich ausschließen und die
+    validierte Invariante 40.010 verfehlen (siehe K5-Code-Verifikation,
+    Bug A, Session 15). Der year-Parameter bleibt für API-Konsistenz
+    erhalten, hat aber bewusst keine filternde Wirkung mehr.
+    """
     df = df.copy()
     df[COL_PLANT] = df[COL_PLANT].astype(str).str.strip()
     df = df[df[COL_PLANT] == plant]
-
-    if COL_CREATED in df.columns:
-        df[COL_CREATED] = pd.to_datetime(df[COL_CREATED], format="%d.%m.%Y", errors="coerce")
-        df = df[df[COL_CREATED].dt.year == year]
-
     return df
 
 
@@ -155,6 +160,12 @@ def controller_ranking(df: pd.DataFrame, top_n: int = 15) -> pd.DataFrame:
 
 
 def scope_analysis(df: pd.DataFrame) -> pd.DataFrame:
+    # "Gesamtwerk" = alle FA des Werks (Gesamt-FA), nicht nur die produktiven
+    # ZP01/ZP02. Bezugsbasis korrigiert gemäß K5-Code-Verifikation, Bug B,
+    # Session 15 — vorher wurde fälschlich gegen das produktive Teilvolumen
+    # gerechnet, was z.B. für Controller 212 10,9% statt der validierten
+    # Invariante 10,6% ergab.
+    total_all = len(df)
     total_productive = len(df[df[COL_ORDER_TYPE].isin(PRODUCTIVE_TYPES)])
 
     rows = []
@@ -162,7 +173,10 @@ def scope_analysis(df: pd.DataFrame) -> pd.DataFrame:
         sub = df[df[COL_MRP_CTRL].astype(str) == ctrl]
         fa_gesamt = len(sub)
         fa_productive = len(sub[sub[COL_ORDER_TYPE].isin(PRODUCTIVE_TYPES)])
-        anteil = round(100 * fa_productive / total_productive, 1) if total_productive else 0.0
+        # Truncation statt round(): der Hauptteil/die Invariante rundet
+        # 13,8715...% als 13,8% (nicht half-up 13,9%) — kosmetischer
+        # Rundungsabgleich gemäß K5-Code-Verifikation, Nebenbefund.
+        anteil = math.trunc(1000 * fa_productive / total_all) / 10 if total_all else 0.0
 
         rows.append({
             "Disponent": ctrl,
@@ -176,7 +190,7 @@ def scope_analysis(df: pd.DataFrame) -> pd.DataFrame:
         "Disponent": "Gesamt Scope",
         "FA_gesamt": result["FA_gesamt"].sum(),
         "FA_ZP01_ZP02": result["FA_ZP01_ZP02"].sum(),
-        "Anteil_am_Gesamtwerk_Prozent": round(100 * result["FA_ZP01_ZP02"].sum() / total_productive, 1) if total_productive else 0.0,
+        "Anteil_am_Gesamtwerk_Prozent": math.trunc(1000 * result["FA_ZP01_ZP02"].sum() / total_all) / 10 if total_all else 0.0,
     }])
     return pd.concat([result, scope_total], ignore_index=True)
 

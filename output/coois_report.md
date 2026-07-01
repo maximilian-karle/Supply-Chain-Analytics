@@ -1,7 +1,7 @@
 # Auswertung Fertigungsaufträge 2025 — ELA, Werk 1000
 
 **Quelle:** SAP COOIS-Export FA_2025.xlsx
-**Auswertungsdatum:** 30.06.2026
+**Auswertungsdatum:** 01.07.2026
 **Scope:** Werk 1000, Kalenderjahr 2025
 
 ---
@@ -10,11 +10,11 @@
 
 | Kennzahl | Wert |
 |---|---|
-| Fertigungsaufträge gesamt (2025) | 39.825 |
-| Davon produktive FA (ZP01 + ZP02) | 38.914 |
-| Davon Nacharbeit / Sonstiges | 911 |
+| Fertigungsaufträge gesamt (2025) | 40.010 |
+| Davon produktive FA (ZP01 + ZP02) | 39.094 |
+| Davon Nacharbeit / Sonstiges | 916 |
 | Arbeitstage 2025 | 248 |
-| Ø FA pro Arbeitstag (Gesamt-FA, validierte Kennzahl) | **160.6** |
+| Ø FA pro Arbeitstag (Gesamt-FA, validierte Kennzahl) | **161.3** |
 
 ---
 
@@ -22,9 +22,9 @@
 
 | Auftragsart | Bezeichnung | Anzahl FA | Anteil |
 |---|---|---|---|
-| ZP01 | Lagerfertigung (MTS) | 21.981 | 55.2 % |
-| ZP02 | Kundeneinzelfertigung (ETO) | 16.933 | 42.5 % |
-| ZP03 | Nacharbeit / Sonstige | 911 | 2.3 % |
+| ZP01 | Lagerfertigung (MTS) | 22.058 | 55.1 % |
+| ZP02 | Kundeneinzelfertigung (ETO) | 17.036 | 42.6 % |
+| ZP03 | Nacharbeit / Sonstige | 916 | 2.3 % |
 
 ---
 
@@ -32,21 +32,21 @@
 
 | Rang | Disponent | FA (ZP01+ZP02) |
 |---|---|---|
-| 1 | 250 | 4.642 |
-| 2 | 212 | 4.245 |
-| 3 | 110 | 3.156 |
-| 4 | 260 | 2.769 |
-| 5 | 216 | 2.017 |
-| 6 | 160 | 1.867 |
-| 7 | 150 | 1.709 |
-| 8 | 215 | 1.522 |
-| 9 | 208 | 1.304 |
-| 10 | 401 | 1.277 |
-| 11 | 209 | 1.173 |
-| 12 | 270 | 1.141 |
-| 13 | 350 | 1.031 |
-| 14 | 960 | 1.027 |
-| 15 | 412 | 1.008 |
+| 1 | 250 | 4.671 |
+| 2 | 212 | 4.257 |
+| 3 | 110 | 3.168 |
+| 4 | 260 | 2.789 |
+| 5 | 216 | 2.031 |
+| 6 | 160 | 1.876 |
+| 7 | 150 | 1.711 |
+| 8 | 215 | 1.531 |
+| 9 | 208 | 1.305 |
+| 10 | 401 | 1.278 |
+| 11 | 209 | 1.175 |
+| 12 | 270 | 1.148 |
+| 13 | 960 | 1.034 |
+| 14 | 350 | 1.033 |
+| 15 | 412 | 1.012 |
 
 ---
 
@@ -54,11 +54,11 @@
 
 | Disponent | FA gesamt | FA (ZP01+ZP02) | Anteil am Gesamtwerk |
 |---|---|---|---|
-| 211 | 391 | 377 | 1.0 % |
-| 212 | 4.318 | 4.245 | 10.9 % |
-| 415 | 386 | 369 | 0.9 % |
-| 416 | 558 | 533 | 1.4 % |
-| Gesamt Scope | 5.653 | 5.524 | 14.2 % |
+| 211 | 401 | 387 | 0.9 % |
+| 212 | 4.331 | 4.257 | 10.6 % |
+| 415 | 389 | 372 | 0.9 % |
+| 416 | 560 | 535 | 1.3 % |
+| Gesamt Scope | 5.681 | 5.551 | 13.8 % |
 
 ---
 
@@ -66,15 +66,15 @@
 
 | Monat | FA |
 |---|---|
-| Januar 2025 | 3.188 |
-| Februar 2025 | 3.282 |
+| Januar 2025 | 3.231 |
+| Februar 2025 | 3.290 |
 | März 2025 | 3.525 |
 | April 2025 | 3.235 |
 | Mai 2025 | 3.450 |
 | Juni 2025 | 3.347 |
-| Juli 2025 | 3.908 |
+| Juli 2025 | 3.909 |
 | August 2025 | 3.108 |
 | September 2025 | 3.629 |
 | Oktober 2025 | 3.473 |
-| November 2025 | 2.994 |
-| Dezember 2025 | 1.775 |
+| November 2025 | 3.002 |
+| Dezember 2025 | 1.895 |

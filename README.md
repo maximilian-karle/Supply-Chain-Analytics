@@ -82,8 +82,8 @@ Both scripts are run from the repository root and follow the same relative-path 
 - **161 orders per working day** on average, based on total order volume (40,010 orders ÷ 248 working days, plant Augsburg, 2025).
 - Near-equal **MTS/ETO split**: 55.1% ZP01 (Lagerfertigung) vs. 42.6% ZP02 (Kundeneinzelfertigung) — confirms a genuinely hybrid production environment.
 - **Controller 212** (actuator line, AG9 pilot resource) is the **second-highest volume controller in the entire plant**, with 4,257 productive orders (10.6% of total plant volume).
-- The four-controller pilot scope (211, 212, 415, 416) accounts for **13.8%** of total productive order volume.
-- No seasonal outliers in monthly distribution (range: 1,775–3,908 orders/month; December dip explained by year-end shutdown).
+- The four-controller pilot scope (211, 212, 415, 416) accounts for **13.8%** of total plant order volume (5,551 of 40,010 orders).
+- No seasonal outliers in monthly distribution (range: 1,895–3,909 orders/month; December dip explained by year-end shutdown).
 
 ---
 
